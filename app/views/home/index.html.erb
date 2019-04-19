@@ -1,0 +1,49 @@
+<h1 class="text-danger">MadLibs</h1>
+<% @words.each do |word| %>
+ <div class="border col-sm-10">
+ <h2><span class="text-primary"><%= word.noun%></span>  &nbsp seems to &nbsp <span class="text-primary"><%= word.verb %></span> &nbsp in a very &nbsp <span class="text-primary"><%= word.adjective %></span> &nbsp manner at &nbsp <span class="text-primary"><%= word.place %></span></h2>
+ 
+ </div>
+ <br><br>
+ <div>
+ 	<%= form_with(model: word, local: true , class: 'form-group col-sm-6') do |form| %>
+  <% if word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(word.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+      <ul>
+      <% word.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :noun %>
+    <%= form.text_field :noun, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :verb %>
+    <%= form.text_field :verb, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adjective %>
+    <%= form.text_field :adjective, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary'%>
+  </div>
+<% end %>
+
+
+ </div>
+<% end %>

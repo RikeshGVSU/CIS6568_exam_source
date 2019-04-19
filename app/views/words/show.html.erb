@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	
+	window.location.href = "http://localhost:3000/";
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Noun:</strong>
+  <%= @word.noun %>
+</p>
+
+<p>
+  <strong>Verb:</strong>
+  <%= @word.verb %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @word.place %>
+</p>
+
+<p>
+  <strong>Adjective:</strong>
+  <%= @word.adjective %>
+</p>
+
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>
